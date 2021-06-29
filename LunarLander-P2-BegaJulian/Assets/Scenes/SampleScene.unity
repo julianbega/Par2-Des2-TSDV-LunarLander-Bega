@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9550eb0cf710e41b591924acef0fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Map: {fileID: 1997196414}
+  Player: {fileID: 0}
 --- !u!4 &482956838
 Transform:
   m_ObjectHideFlags: 0
@@ -200,7 +202,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -241,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.41, y: -0.09, z: -10}
+  m_LocalPosition: {x: -29.28, y: -0.09, z: -10}
   m_LocalScale: {x: 0.71114, y: 0.426684, z: 0.71114}
   m_Children: []
   m_Father: {fileID: 0}
@@ -700,7 +702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997196414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -58.56, y: 0, z: 0}
   m_LocalScale: {x: 0.9522233, y: 0.9522233, z: 0.9522233}
   m_Children: []
   m_Father: {fileID: 0}
