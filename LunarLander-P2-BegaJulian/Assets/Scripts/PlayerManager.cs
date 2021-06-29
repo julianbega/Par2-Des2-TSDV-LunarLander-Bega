@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerManager : MonoBehaviour
+
 {
     public float fuel;
     public float score;
@@ -17,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     public Rigidbody2D playerRB;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

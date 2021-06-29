@@ -71,8 +71,9 @@ GameObject:
   - component: {fileID: 4276960855644427786}
   - component: {fileID: 4276960855644427787}
   - component: {fileID: 4276960855644427784}
-  - component: {fileID: 4276960855644427785}
   - component: {fileID: 4276960855644427782}
+  - component: {fileID: 3784956024345873108}
+  - component: {fileID: 3098420488137353455}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -211,24 +212,6 @@ PolygonCollider2D:
       - {x: 0.20084819, y: -0.87796056}
       - {x: 0.35109496, y: -0.8035964}
       - {x: 0.42236337, y: -0.775307}
---- !u!114 &4276960855644427785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276960855644427780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14610b3942eaeef45be6a8194bc76467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fuel: 5000
-  score: 0
-  rotationSpeed: 40
-  propultionSpeed: 300
-  playerRB: {fileID: 2120042408833121327, guid: e450dc982779c814eb8b600062be0031,
-    type: 3}
 --- !u!114 &4276960855644427782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,4 +224,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da3f21503e59be4e9b9c9fb71e5e351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 4276960855644427785}
+  manager: {fileID: 3784956024345873108}
+--- !u!114 &3784956024345873108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276960855644427780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3349f7ffb4eb6fe43a27afd23b44a068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuel: 0
+  score: 0
+  rotationSpeed: 40
+  propultionSpeed: 400
+  playerRB: {fileID: 3098420488137353455}
+--- !u!50 &3098420488137353455
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276960855644427780}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.2
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

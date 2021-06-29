@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerStats stats;
+    public PlayerManager manager;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +15,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
-        { stats.playerRB.transform.Rotate(Vector3.forward * Time.deltaTime * stats.rotationSpeed, Space.Self); }
+        { manager.playerRB.transform.Rotate(Vector3.forward * Time.deltaTime * manager.rotationSpeed, Space.Self); }
         if (Input.GetKey(KeyCode.D))
-        { stats.playerRB.transform.Rotate(-Vector3.forward * Time.deltaTime * stats.rotationSpeed, Space.Self); }
+        { manager.playerRB.transform.Rotate(-Vector3.forward * Time.deltaTime * manager.rotationSpeed, Space.Self); }
 
-        if (Input.GetKey(KeyCode.Space) && stats.fuel > 0)
+        if (Input.GetKey(KeyCode.Space) && manager.fuel > 0)
         { 
-            stats.playerRB.AddForce(transform.up * Time.deltaTime * stats.propultionSpeed);
-            stats.fuel -= 10 * Time.deltaTime;
+            manager.playerRB.AddForce(transform.up * Time.deltaTime * manager.propultionSpeed);
+            manager.fuel -= 10 * Time.deltaTime;
         }
     }
 
