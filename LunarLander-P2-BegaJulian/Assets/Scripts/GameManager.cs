@@ -9,7 +9,23 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public float time;
     public bool isPaused;
-    // Start is called before the first frame update
+
+
+    public static GameManager instanceGameManager;
+
+    public static GameManager Instance { get { return instanceGameManager; } }
+
+    private void Awake()
+    {
+        if (instanceGameManager != null && instanceGameManager != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instanceGameManager = this;
+        }
+    }
     void Start()
     {
         UpdateMap();
