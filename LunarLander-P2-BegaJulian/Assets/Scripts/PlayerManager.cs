@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public float score;
     public float rotationSpeed;
     public float propultionSpeed;
+    public int lvl;
 
     public float horizontalSpeed;
     public float verticalSpeed;
@@ -27,4 +28,8 @@ public class PlayerManager : MonoBehaviour
         verticalSpeed =  playerRB.velocity.y;
         horizontalSpeed = playerRB.velocity.x;
     }
+
+
+    
+
 }
