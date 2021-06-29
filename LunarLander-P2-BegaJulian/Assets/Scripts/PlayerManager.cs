@@ -10,10 +10,10 @@ public class PlayerManager : MonoBehaviour
     public float rotationSpeed;
     public float propultionSpeed;
 
-    private float horizontalSpeed;
-    private float verticalSpeed;
-    private float Altitud;
-    private bool isPaused;
+    public float horizontalSpeed;
+    public float verticalSpeed;
+    public float altitude;
+    public bool isPaused;
 
     public Rigidbody2D playerRB;
     void Start()
@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        verticalSpeed = playerRB.velocity.y;
+        verticalSpeed =  playerRB.velocity.y;
         horizontalSpeed = playerRB.velocity.x;
     }
 }
