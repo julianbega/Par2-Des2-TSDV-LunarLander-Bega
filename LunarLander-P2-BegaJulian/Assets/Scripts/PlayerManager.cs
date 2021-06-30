@@ -10,16 +10,20 @@ public class PlayerManager : MonoBehaviour
     public float rotationSpeed;
     public float propultionSpeed;
     public int lvl;
+    public float defaultPointsPerLanding;
+    private bool victory;
+    private bool playerIsDeath;
 
-    public float horizontalSpeed;
-    public float verticalSpeed;
-    public float altitude;
+    private float horizontalSpeed;
+    private float verticalSpeed;
+    private float altitude;
     public bool isPaused;
 
     public Rigidbody2D playerRB;
     void Start()
     {
-
+        victory = false;
+        playerIsDeath = false;
     }
 
     // Update is called once per frame
@@ -27,9 +31,30 @@ public class PlayerManager : MonoBehaviour
     {
         verticalSpeed =  playerRB.velocity.y;
         horizontalSpeed = playerRB.velocity.x;
+
     }
 
 
     
+    public void SetVictory(bool result)
+    {
+        victory = result;
+    }
+    public void SetPlayerIsDeath(bool checkDeath)
+    {
+        playerIsDeath = checkDeath;
+    }
 
+    public float GetHorizontalSpeed()
+    {
+        return horizontalSpeed;
+    }
+    public float GetVerticalSpeed()
+    {
+        return verticalSpeed;
+    }
+    public float GetAltitude()
+    {
+        return altitude;
+    }
 }
