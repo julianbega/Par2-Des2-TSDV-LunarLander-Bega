@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     GameObject map;
     GameObject background;
     GameObject Player;
-
+    PlayerManager playerManager;
     public static GameManager instanceGameManager;
 
     public static GameManager Instance { get { return instanceGameManager; } }
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         float randomXpos = Random.Range(0, 110.5f);
         map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
         Player = Instantiate(PlayerPrefab, new Vector3(-55f, 4f, 0), Quaternion.identity);
+        playerManager = Player.GetComponent<PlayerManager>();
     }
     void StartNewLvl()
     {
@@ -70,10 +71,12 @@ public class GameManager : MonoBehaviour
         if (Time.timeScale == 1)
         {
             Time.timeScale = 0;
+            playerManager.isPaused = true;
         }
         else
         {
             Time.timeScale = 1;
+            playerManager.isPaused = false;
         }
     }
 
