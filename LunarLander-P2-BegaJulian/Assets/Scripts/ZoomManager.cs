@@ -8,9 +8,12 @@ public class ZoomManager : MonoBehaviour
     public float zoomInDistance;
 
     private Vector3 initialCameraPos;
+
+    bool isZoomed;
     private void Start()
     {
         initialCameraPos = mainCamera.transform.position;
+        isZoomed = false;
     }
     void FixedUpdate()
     { 
@@ -18,23 +21,32 @@ public class ZoomManager : MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.down);
         if (hit.collider != null)
         {
-            CameraZoomIn();
+             if (isZoomed)
+            { 
+                CameraZoomIn();
+                isZoomed = false;
+            }
         }
         else 
         {
-            CameraZoomOut();
+            if (!isZoomed)
+            {
+                CameraZoomOut();
+                isZoomed = true;
+            }
+           
         }
     }
     private void CameraZoomOut()
     {
         mainCamera.transform.position = initialCameraPos;
-        mainCamera.orthographicSize = 5f;
+       // mainCamera.orthographicSize = Mathf.Lerp(3f, 5f, 0.2f);
         Debug.Log("zoom out");
     }
     private void CameraZoomIn()
     {
         mainCamera.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, mainCamera.transform.position.z);
-        mainCamera.orthographicSize = 3f;
+       // mainCamera.orthographicSize = Mathf.Lerp(5f, 3f, 0.2f);
         Debug.Log("zoom in");
     }
 }
