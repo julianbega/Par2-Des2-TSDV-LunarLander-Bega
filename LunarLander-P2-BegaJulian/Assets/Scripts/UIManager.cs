@@ -13,20 +13,28 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI verticalSpeed;
     public TextMeshProUGUI altitude;
 
-    private PlayerManager player;
-    void Start()
+    private PlayerManager player = null;
+    void LateStart()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        player = FindObjectOfType<PlayerManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        score.text = "Score:" + player.score.ToString();
-        // time.text = "Time:" + player.score.ToString();
-        fuel.text = "Fuel:" + player.fuel.ToString();
-        horizontalSpeed.text = "HorizontalSpeed:" + player.horizontalSpeed.ToString("F2");
-        verticalSpeed.text = "VerticalSpeed:" + player.verticalSpeed.ToString("F2");
-        altitude.text = "Altitude:" + player.altitude.ToString();
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerManager>(); 
+        }
+
+        if (player != null)
+            {
+            score.text = "Score:" + player.score.ToString();
+            // time.text = "Time:" + player.score.ToString();
+            fuel.text = "Fuel:" + player.fuel.ToString();
+            horizontalSpeed.text = "HorizontalSpeed:" + player.horizontalSpeed.ToString("F2");
+            verticalSpeed.text = "VerticalSpeed:" + player.verticalSpeed.ToString("F2");
+            altitude.text = "Altitude:" + player.altitude.ToString();
+        }
     }
 }

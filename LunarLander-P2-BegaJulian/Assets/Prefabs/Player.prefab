@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 9134984696972604044}
   - component: {fileID: 4276960855644427784}
   - component: {fileID: 3098420488137353455}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   score: 0
   rotationSpeed: 40
   propultionSpeed: 400
+  lvl: 0
   horizontalSpeed: 0
   verticalSpeed: 0
   altitude: 0
@@ -133,7 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  zoomInDistance: 0
+  zoomInDistance: 2
+  isZoomed: 0
+  collide: 0
 --- !u!60 &4276960855644427784
 PolygonCollider2D:
   m_ObjectHideFlags: 0

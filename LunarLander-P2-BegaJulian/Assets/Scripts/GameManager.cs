@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject Map;
-    public GameObject Player;
+    public GameObject MapPrefab;
+    public GameObject PlayerPrefab;
     public float time;
     public bool isPaused;
-
+    GameObject map;
+    GameObject Player;
 
     public static GameManager instanceGameManager;
 
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        UpdateMap();
+        StartGame();
     }
 
     // Update is called once per frame
@@ -37,9 +38,17 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void UpdateMap()
+    void StartGame()
+    {
+       
+        float randomXpos = Random.Range(0, 110.5f);
+        map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
+        Player = Instantiate(PlayerPrefab, new Vector3(-55f, 4f, 0), Quaternion.identity);
+    }
+    void StartNewLvl()
     {
         float randomXpos = Random.Range(0, 110.5f);
-        Map.transform.position = new Vector3(randomXpos * -1, 1.3f, 0);
+        map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
+        Player.transform.position = new Vector3(-55f, 4f, 0);
     }
 }
