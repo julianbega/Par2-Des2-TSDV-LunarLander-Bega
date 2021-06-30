@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
             score.text = "Score:" + player.score.ToString();
             // time.text = "Time:" + player.score.ToString();
             fuel.text = "Fuel:" + player.fuel.ToString();
-            horizontalSpeed.text = "HorizontalSpeed:" + player.horizontalSpeed.ToString("F2");
-            verticalSpeed.text = "VerticalSpeed:" + player.verticalSpeed.ToString("F2");
-            altitude.text = "Altitude:" + player.altitude.ToString();
+            horizontalSpeed.text = "HorizontalSpeed:" + player.GetHorizontalSpeed().ToString("F2");
+            verticalSpeed.text = "VerticalSpeed:" + player.GetVerticalSpeed().ToString("F2");
+            altitude.text = "Altitude:" + player.GetAltitude().ToString();
         }
     }
 }

@@ -41,6 +41,17 @@ public class PlayerController : MonoBehaviour
         {
             isDead = true;
         }
+        else 
+        {
+            if (manager.playerRB.rotation <-10 || manager.playerRB.rotation > 10)
+            {
+                isDead = true;
+            }
+            else 
+            {
+                manager.SetVictory(true);
+            }
+        }
     }
 
 
