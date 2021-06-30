@@ -10,11 +10,15 @@ public class PlayerManager : MonoBehaviour
     public float propultionSpeed;
     public int lvl;
     public float defaultPointsPerLanding;
-    private bool victory;
+    public bool victory;
     private bool playerIsDeath;
+    private float scoreThisLevel;
 
     public int timerMin;
     public float timerSec;
+
+
+    public Animator Explotion;
 
     private float horizontalSpeed;
     private float verticalSpeed;
@@ -22,13 +26,18 @@ public class PlayerManager : MonoBehaviour
     public bool isPaused;
 
     public Rigidbody2D playerRB;
+    private void Awake()
+    {
+        lvl = 0;
+    }
     void Start()
     {
-        lvl = 1;
+        lvl += 1;
         victory = false;
         playerIsDeath = false;
         timerSec = 0;
         timerMin = 0;
+        this.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void Update()
@@ -42,13 +51,29 @@ public class PlayerManager : MonoBehaviour
             timerSec = 0;
             timerMin++;
         }
+        if (victory)
+        { 
+            score += scoreThisLevel;
+            victory = false;
+        }
+        if (playerIsDeath)
+        {
+            Explotion.SetBool("Die", true);
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        
     }
 
 
-    
+
     public void SetVictory(bool result)
     {
         victory = result;
+    }
+    public void SetScoreThisLevel(int multiplier)
+    {
+        scoreThisLevel = defaultPointsPerLanding * multiplier;
+        
     }
     public void SetPlayerIsDeath(bool checkDeath)
     {
@@ -58,6 +83,10 @@ public class PlayerManager : MonoBehaviour
     public float GetHorizontalSpeed()
     {
         return horizontalSpeed;
+    }
+    public float GetPointsThisLvl()
+    {
+        return scoreThisLevel;
     }
     public float GetVerticalSpeed()
     {

@@ -14,8 +14,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI lvl;
     public TextMeshProUGUI altitude;
 
-    public Button BackToMenu;
-    public Button Resume;
+   // public Button BackToMenu;
+   // public Button Resume;
     public Image Controls;
     private PlayerManager player = null;
     void LateStart()
@@ -44,18 +44,14 @@ public class UIManager : MonoBehaviour
 
             if (player.isPaused)
             {
-                BackToMenu.image.enabled = true;
-                Resume.image.enabled = true;
+               // BackToMenu.image.enabled = true;
+              //  Resume.image.enabled = true;
                 Controls.enabled = true;
-                Resume.GetComponent<TextMeshProUGUI>().enabled = true;
-                BackToMenu.GetComponent<TextMeshProUGUI>().enabled = true;
             }
             else
             {
-                BackToMenu.image.enabled = false;
-                BackToMenu.GetComponent<TextMeshProUGUI>().enabled = false;
-                Resume.image.enabled = false;
-                Resume.GetComponent<TextMeshProUGUI>().enabled = false;
+            //    BackToMenu.image.enabled = false;
+             //   Resume.image.enabled = false;
                 Controls.enabled = false;
             }
         }

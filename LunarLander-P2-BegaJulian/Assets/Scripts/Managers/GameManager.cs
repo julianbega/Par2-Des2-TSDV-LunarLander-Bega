@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     PlayerManager playerManager;
     public static GameManager instanceGameManager;
 
+
     public static GameManager Instance { get { return instanceGameManager; } }
 
     private void Awake()

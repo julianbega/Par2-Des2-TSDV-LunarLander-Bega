@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9134984696972604044}
   - component: {fileID: 4276960855644427784}
   - component: {fileID: 3098420488137353455}
+  - component: {fileID: 4418378858407332878}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -120,7 +121,11 @@ MonoBehaviour:
   rotationSpeed: 40
   propultionSpeed: 400
   lvl: 0
-  defaultPointsPerLanding: 0
+  defaultPointsPerLanding: 200
+  victory: 0
+  timerMin: 0
+  timerSec: 0
+  Explotion: {fileID: 4418378858407332878}
   isPaused: 0
   playerRB: {fileID: 3098420488137353455}
 --- !u!114 &9134984696972604044
@@ -226,6 +231,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &4418378858407332878
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276960855644427780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15e758bb18aad9c438161ec381f54da8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8137160131081454723
 GameObject:
   m_ObjectHideFlags: 0
