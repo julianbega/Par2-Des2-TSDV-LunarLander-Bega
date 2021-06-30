@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI fuel;
     public TextMeshProUGUI horizontalSpeed;
     public TextMeshProUGUI verticalSpeed;
+    public TextMeshProUGUI lvl;
     public TextMeshProUGUI altitude;
 
     private PlayerManager player = null;
@@ -35,6 +36,7 @@ public class UIManager : MonoBehaviour
             horizontalSpeed.text = "HorizontalSpeed:" + player.GetHorizontalSpeed().ToString("F2");
             verticalSpeed.text = "VerticalSpeed:" + player.GetVerticalSpeed().ToString("F2");
             altitude.text = "Altitude:" + player.GetAltitude().ToString();
+            lvl.text = "Level:" + player.lvl.ToString();
         }
     }
 }
