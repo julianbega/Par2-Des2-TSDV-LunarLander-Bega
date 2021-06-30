@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
             {
             score.text = "Score:" + player.score.ToString();
             // time.text = "Time:" + player.score.ToString();
+            time.text = "Timer: " + player.GetTimerMin() + " : " + (float)Mathf.Round(player.GetTimerSec());
             fuel.text = "Fuel:" + player.fuel.ToString();
             horizontalSpeed.text = "HorizontalSpeed:" + player.GetHorizontalSpeed().ToString("F2");
             verticalSpeed.text = "VerticalSpeed:" + player.GetVerticalSpeed().ToString("F2");

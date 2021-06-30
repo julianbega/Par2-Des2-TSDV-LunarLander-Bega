@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
-
 {
     public float fuel;
     public float score;
@@ -13,6 +12,9 @@ public class PlayerManager : MonoBehaviour
     public float defaultPointsPerLanding;
     private bool victory;
     private bool playerIsDeath;
+
+    public int timerMin;
+    public float timerSec;
 
     private float horizontalSpeed;
     private float verticalSpeed;
@@ -25,15 +27,21 @@ public class PlayerManager : MonoBehaviour
         lvl = 1;
         victory = false;
         playerIsDeath = false;
+        timerSec = 0;
+        timerMin = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         altitude = (transform.position.y + 5) * 100;
         verticalSpeed =  playerRB.velocity.y;
         horizontalSpeed = playerRB.velocity.x;
-
+        timerSec += Time.deltaTime;
+        if (timerSec >= 59)
+        {
+            timerSec = 0;
+            timerMin++;
+        }
     }
 
 
@@ -54,6 +62,14 @@ public class PlayerManager : MonoBehaviour
     public float GetVerticalSpeed()
     {
         return verticalSpeed;
+    }
+    public float GetTimerMin()
+    {
+        return timerMin;
+    }
+    public float GetTimerSec()
+    {
+        return timerSec;
     }
     public float GetAltitude()
     {
