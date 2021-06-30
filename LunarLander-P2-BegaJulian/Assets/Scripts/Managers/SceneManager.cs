@@ -14,7 +14,7 @@ public class SceneManager : MonoBehaviour
         actualScene = "Menu";
         if (instanceSceneManager != null && instanceSceneManager != this)
         {
-            Destroy(this.gameObject);
+            Destroy(FindObjectOfType<SceneManager>().gameObject);
         }
         else
         {

@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-       StartGame();
     }
 
     // Update is called once per frame
@@ -48,7 +47,6 @@ public class GameManager : MonoBehaviour
    void StartGame()
     {
         Debug.Log("startGame");
-        //Canvas UI = FindObjectOfType<Canvas>();
         TextMeshProUGUI[] texts = FindObjectsOfType<TextMeshProUGUI>();
         for (int i = 0; i < texts.Length; i++)
         {
