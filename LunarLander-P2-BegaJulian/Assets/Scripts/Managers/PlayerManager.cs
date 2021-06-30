@@ -8,14 +8,15 @@ public class PlayerManager : MonoBehaviour
     public float score;
     public float rotationSpeed;
     public float propultionSpeed;
+    public float gravity;
     public int lvl;
     public float defaultPointsPerLanding;
     public bool victory;
     public bool playerIsDeath;
     private float scoreThisLevel;
 
-    public int timerMin;
-    public float timerSec;
+    private int timerMin;
+    private float timerSec;
 
 
     public Animator Explotion;
@@ -23,22 +24,23 @@ public class PlayerManager : MonoBehaviour
     private float horizontalSpeed;
     private float verticalSpeed;
     private float altitude;
-    public bool isPaused;
-    public bool allreadyCollide;
+    private bool isPaused;
+    private bool allreadyCollide;
 
     public Rigidbody2D playerRB;
     private void Awake()
     {
+        playerRB.gravityScale = gravity;
         lvl = 0;
+        timerSec = 0;
+        timerMin = 0;
     }
     void Start()
     {
         lvl += 1;
         victory = false;
         allreadyCollide = false;
-        playerIsDeath = false;
-        timerSec = 0;
-        timerMin = 0;
+        playerIsDeath = false;   
         this.GetComponent<SpriteRenderer>().enabled = true;
     }
 
@@ -81,7 +83,10 @@ public class PlayerManager : MonoBehaviour
     {
         playerIsDeath = checkDeath;
     }
-
+    public void SetIsPaused(bool pauseState)
+    {
+        isPaused = pauseState;
+    }
     public float GetHorizontalSpeed()
     {
         return horizontalSpeed;
@@ -102,6 +107,11 @@ public class PlayerManager : MonoBehaviour
     {
         return timerSec;
     }
+    public bool GetIsPaused()
+    {
+        return isPaused;
+    }
+
     public float GetAltitude()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
@@ -147,5 +157,14 @@ public class PlayerManager : MonoBehaviour
             }
         }
         allreadyCollide = true;
+    }
+
+    public void NewLvl()
+    {
+        lvl += 1;
+        victory = false;
+        allreadyCollide = false;
+        playerIsDeath = false;
+        this.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

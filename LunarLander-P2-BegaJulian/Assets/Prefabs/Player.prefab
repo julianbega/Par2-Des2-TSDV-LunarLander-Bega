@@ -120,13 +120,16 @@ MonoBehaviour:
   score: 0
   rotationSpeed: 40
   propultionSpeed: 400
+  gravity: 0.2
   lvl: 0
   defaultPointsPerLanding: 200
   victory: 0
+  playerIsDeath: 0
   timerMin: 0
   timerSec: 0
   Explotion: {fileID: 4418378858407332878}
   isPaused: 0
+  allreadyCollide: 0
   playerRB: {fileID: 3098420488137353455}
 --- !u!114 &9134984696972604044
 MonoBehaviour:

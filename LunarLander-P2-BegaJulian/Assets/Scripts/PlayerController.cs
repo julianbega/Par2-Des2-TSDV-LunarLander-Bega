@@ -42,6 +42,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void NewLvl()
+    {
+        allreadyCollide = false;
+        isDead = false;
+    }
+
     
 
 

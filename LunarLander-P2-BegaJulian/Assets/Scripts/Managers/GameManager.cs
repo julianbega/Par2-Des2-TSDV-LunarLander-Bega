@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     GameObject Player;
     PlayerManager playerManager;
     public static GameManager instanceGameManager;
+    private UIManager UI;
 
 
     public static GameManager Instance { get { return instanceGameManager; } }
@@ -33,7 +34,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        StartGame();
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   void StartGame()
+   public void StartGame()
     {
         Debug.Log("startGame");
         TextMeshProUGUI[] texts = FindObjectsOfType<TextMeshProUGUI>();
@@ -60,11 +60,14 @@ public class GameManager : MonoBehaviour
         Player = Instantiate(PlayerPrefab, new Vector3(-55f, 4f, 0), Quaternion.identity);
         playerManager = Player.GetComponent<PlayerManager>();
     }
-    void StartNewLvl()
+    public void StartNewLvl()
     {
+        UI = FindObjectOfType<UIManager>();
+        UI.setEndLvl();
+        Player.GetComponent<PlayerController>().NewLvl();
         float randomXpos = Random.Range(0, 110.5f);
-         
-        map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
+        playerManager.NewLvl();
+        map.transform.position = new Vector3(randomXpos * -1, 1.3f, 0);
         Player.transform.position = new Vector3(-55f, 4f, 0);
     }
 
@@ -73,12 +76,12 @@ public class GameManager : MonoBehaviour
         if (Time.timeScale == 1)
         {
             Time.timeScale = 0;
-            playerManager.isPaused = true;
+            playerManager.SetIsPaused(true);
         }
         else
         {
             Time.timeScale = 1;
-            playerManager.isPaused = false;
+            playerManager.SetIsPaused(true);
         }
     }
 

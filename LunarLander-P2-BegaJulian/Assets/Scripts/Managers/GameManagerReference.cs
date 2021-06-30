@@ -50,4 +50,26 @@ public class GameManagerReference : MonoBehaviour
     {
         referenceSceneManager.ChangeScene("Menu");
     }
+    public void GoToGame()
+    {
+        referenceSceneManager.ChangeScene("Game");
+    }
+    public void GoToCredits()
+    {
+        referenceSceneManager.ChangeScene("Credits");
+    }
+    public void ExitGame()
+    {
+        referenceSceneManager.OnClickQuit();
+    }
+
+    public void newLvl()
+    {
+        referenceManager.StartNewLvl();
+    }
+    public void newGame()
+    {
+        referenceManager.GoToGame();
+    }
+    
 }

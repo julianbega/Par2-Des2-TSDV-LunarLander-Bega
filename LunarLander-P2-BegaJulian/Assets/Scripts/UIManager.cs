@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI lvl;
     public TextMeshProUGUI altitude;
  
-   // public Button BackToMenu;
+  // public Button BackToMenu;
    // public Button Resume;
     public Image Controls;
     private PlayerManager player = null;
@@ -52,16 +52,16 @@ public class UIManager : MonoBehaviour
             altitude.text = "Altitude:" + player.GetAltitude().ToString();
             lvl.text = "Level:" + player.lvl.ToString();
 
-            if (player.isPaused)
+            if (player.GetIsPaused() == true)
             {
-               // BackToMenu.image.enabled = true;
-              //  Resume.image.enabled = true;
+                // BackToMenu.gameObject.SetActive(true);
+                //  Resume.image.enabled = true;
                 Controls.enabled = true;
             }
             else
             {
-            //    BackToMenu.image.enabled = false;
-             //   Resume.image.enabled = false;
+              //  BackToMenu.gameObject.SetActive(false);
+                //   Resume.image.enabled = false;
                 Controls.enabled = false;
             }
 
