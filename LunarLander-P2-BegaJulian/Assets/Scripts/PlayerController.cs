@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     public bool allreadyCollide;
     public bool isDead;
+
+    public ParticleSystem rocketFire;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +31,14 @@ public class PlayerController : MonoBehaviour
             {
                 manager.playerRB.AddForce(transform.up * Time.deltaTime * manager.propultionSpeed);
                 manager.fuel -= 10 * Time.deltaTime;
+                if (!rocketFire.isPlaying) rocketFire.Play();
+            }
+            else
+            {
+                rocketFire.Stop();
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

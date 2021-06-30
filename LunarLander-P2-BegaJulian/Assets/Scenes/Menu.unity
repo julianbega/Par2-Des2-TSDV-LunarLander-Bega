@@ -833,7 +833,7 @@ MonoBehaviour:
           m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1875019450}
         m_MethodName: GoToGame
         m_Mode: 1
         m_Arguments:
@@ -1375,6 +1375,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1875019450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9209049710765689247, guid: 5cca6f9e86c652f40b3ea7879cfa0ea6,
+    type: 3}
+  m_PrefabInstance: {fileID: 906605140}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9550eb0cf710e41b591924acef0fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1882953597
 GameObject:
   m_ObjectHideFlags: 0
