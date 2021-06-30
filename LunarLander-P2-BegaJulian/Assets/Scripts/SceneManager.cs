@@ -22,6 +22,7 @@ public class SceneManager : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
     }
     private void OnDisable()
     {
