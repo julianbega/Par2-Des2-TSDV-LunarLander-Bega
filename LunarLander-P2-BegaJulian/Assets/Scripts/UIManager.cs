@@ -56,13 +56,13 @@ public class UIManager : MonoBehaviour
             {
                 // BackToMenu.gameObject.SetActive(true);
                 //  Resume.image.enabled = true;
-                Controls.enabled = true;
+                Controls.gameObject.SetActive(true);
             }
             else
             {
               //  BackToMenu.gameObject.SetActive(false);
                 //   Resume.image.enabled = false;
-                Controls.enabled = false;
+                Controls.gameObject.SetActive(false);
             }
 
             if (player.victory == true || player.playerIsDeath == true)

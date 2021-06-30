@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
-            playerManager.SetIsPaused(true);
+            playerManager.SetIsPaused(false);
         }
     }
 
