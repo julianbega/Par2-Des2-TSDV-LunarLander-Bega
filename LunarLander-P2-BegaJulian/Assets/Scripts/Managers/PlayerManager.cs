@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public int lvl;
     public float defaultPointsPerLanding;
     public bool victory;
-    private bool playerIsDeath;
+    public bool playerIsDeath;
     private float scoreThisLevel;
 
     public int timerMin;
@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     private float verticalSpeed;
     private float altitude;
     public bool isPaused;
+    public bool allreadyCollide;
 
     public Rigidbody2D playerRB;
     private void Awake()
@@ -34,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     {
         lvl += 1;
         victory = false;
+        allreadyCollide = false;
         playerIsDeath = false;
         timerSec = 0;
         timerMin = 0;
@@ -108,5 +110,42 @@ public class PlayerManager : MonoBehaviour
         else { altitude = 0; }
         if (altitude < 0.1) { altitude = 0; }
         return altitude;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Mathf.Abs(GetVerticalSpeed()) + Mathf.Abs(GetHorizontalSpeed()) > 1)
+        {
+            playerIsDeath = true;
+        }
+        else
+        {
+            if (playerRB.rotation < -10 || playerRB.rotation > 10)
+            {
+                playerIsDeath = true;
+            }
+            else
+            {
+                Debug.Log("Chocó con la plataforma" + collision.gameObject.tag);
+                SetVictory(true);
+                if (!allreadyCollide)
+                {
+                    if (collision.gameObject.tag == "X2")
+                    { SetScoreThisLevel(2); }
+                    else if (collision.gameObject.tag == "X3")
+                    { SetScoreThisLevel(3); }
+                    else if (collision.gameObject.tag == "X4")
+                    { SetScoreThisLevel(4); }
+                    else if (collision.gameObject.tag == "X5")
+                    { SetScoreThisLevel(5); }
+                    else if (collision.gameObject.tag == "X6")
+                    { SetScoreThisLevel(6); }
+                    else
+                    { SetScoreThisLevel(1); }
+                }
+
+            }
+        }
+        allreadyCollide = true;
     }
 }

@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        StartGame();
     }
 
     // Update is called once per frame

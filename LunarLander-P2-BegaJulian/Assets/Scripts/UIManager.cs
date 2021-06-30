@@ -6,6 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    //---------------- Player------------------
     public TextMeshProUGUI score;
     public TextMeshProUGUI time;
     public TextMeshProUGUI fuel;
@@ -13,14 +14,23 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI verticalSpeed;
     public TextMeshProUGUI lvl;
     public TextMeshProUGUI altitude;
-
+ 
    // public Button BackToMenu;
    // public Button Resume;
     public Image Controls;
     private PlayerManager player = null;
+
+    //---------------- EndLvl------------------
+    public Button Next;
+    public Button ToMenu;
+    public Image Panel;
+    public TextMeshProUGUI FinalScore;
+    public TextMeshProUGUI GameResult;
+
     void LateStart()
     {
         player = FindObjectOfType<PlayerManager>();
+        setEndLvl();
     }
 
     // Update is called once per frame
@@ -33,7 +43,7 @@ public class UIManager : MonoBehaviour
 
         if (player != null)
             {
-            score.text = "Score:" + player.score.ToString();
+            score.text = "Score: " + player.score.ToString();
             // time.text = "Time:" + player.score.ToString();
             time.text = "Timer: " + player.GetTimerMin() + " : " + (float)Mathf.Round(player.GetTimerSec());
             fuel.text = "Fuel:" + player.fuel.ToString();
@@ -54,8 +64,39 @@ public class UIManager : MonoBehaviour
              //   Resume.image.enabled = false;
                 Controls.enabled = false;
             }
+
+            if (player.victory == true || player.playerIsDeath == true)
+            {
+                GameResult.gameObject.SetActive(true);
+                Panel.gameObject.SetActive(true);
+                FinalScore.gameObject.SetActive(true);
+                if (player.victory)
+                {
+                    Next.gameObject.SetActive(true);
+                    GameResult.text = "You landed";
+                }
+                else 
+                {
+                    ToMenu.gameObject.SetActive(true);
+                    GameResult.text = "You crash";
+                }
+               
+            }
+            if (FinalScore.gameObject.active)
+            {
+                FinalScore.text = "Final Score: " + player.score.ToString();
+            }
         }
 
        
+    }
+
+    public void setEndLvl()
+    {
+        ToMenu.gameObject.SetActive(false);
+        Next.gameObject.SetActive(false);
+        Panel.gameObject.SetActive(false);
+        FinalScore.gameObject.SetActive(false);
+        GameResult.gameObject.SetActive(false);
     }
 }

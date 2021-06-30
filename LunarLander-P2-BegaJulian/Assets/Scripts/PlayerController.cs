@@ -42,42 +42,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (Mathf.Abs(manager.playerRB.velocity.x) + Mathf.Abs(manager.playerRB.velocity.y) > 1)
-        {
-            isDead = true;
-        }
-        else
-        {
-            if (manager.playerRB.rotation < -10 || manager.playerRB.rotation > 10)
-            {
-                isDead = true;
-            }
-            else
-            {
-                if (!allreadyCollide)
-                {
-                    Debug.Log("Chocó con la plataforma" + collision.gameObject.tag);
-                    manager.SetVictory(true);
-                    if (collision.gameObject.tag == "X2")
-                    { manager.SetScoreThisLevel(2); }
-                    else if (collision.gameObject.tag == "X3")
-                    { manager.SetScoreThisLevel(3); }
-                    else if (collision.gameObject.tag == "X4")
-                    { manager.SetScoreThisLevel(4); }
-                    else if (collision.gameObject.tag == "X5")
-                    { manager.SetScoreThisLevel(5); }
-                    else if (collision.gameObject.tag == "X6")
-                    { manager.SetScoreThisLevel(6); }
-                    else
-                    { manager.SetScoreThisLevel(1); }
-                }
-            }
-        }
-        allreadyCollide = true;
-    }
+    
 
 
 }
