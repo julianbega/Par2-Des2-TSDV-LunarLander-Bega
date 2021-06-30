@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-       // StartGame();
+//        StartGame();
     }
 
     // Update is called once per frame
@@ -43,10 +45,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   public void StartGame()
+   void StartGame()
     {
-        Canvas UI = FindObjectOfType<Canvas>();
-        UI.sortingOrder = 0;
+        Debug.Log("startGame");
+        //Canvas UI = FindObjectOfType<Canvas>();
+        TextMeshProUGUI[] texts = FindObjectsOfType<TextMeshProUGUI>();
+        for (int i = 0; i < texts.Length; i++)
+        {
+            texts[i].color = Color.white;
+        }
         background = Instantiate(BackgroundPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         float randomXpos = Random.Range(0, 110.5f);
         map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
@@ -74,11 +81,13 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator Wait1SecondAndStartGame()
     {
+        Debug.Log("start corrutine");
         yield return new WaitForSeconds(2f);
         StartGame();
     }
     public void GoToGame()
     {
+        Debug.Log("go to game");
         StartCoroutine(Wait1SecondAndStartGame());
     }
 }
