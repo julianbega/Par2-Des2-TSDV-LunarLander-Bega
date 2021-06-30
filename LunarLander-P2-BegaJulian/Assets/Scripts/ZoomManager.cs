@@ -24,12 +24,8 @@ public class ZoomManager : MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.down);
         if (hit.collider != null) //colisiona con algo
         {
-            collide = true;
-            if (!isZoomed)
-            {
                 CameraZoomIn();
                 isZoomed = true;
-            }
         }
         else 
         {
