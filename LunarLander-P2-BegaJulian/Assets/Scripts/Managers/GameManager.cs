@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     PlayerManager playerManager;
     public static GameManager instanceGameManager;
     private UIManager UI;
+    public string playerName;
 
 
     public static GameManager Instance { get { return instanceGameManager; } }
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        playerName = "NN";
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -95,5 +97,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("go to game");
         StartCoroutine(Wait1SecondAndStartGame());
+    }
+
+    public void ReadPlayersName(string name)
+    {
+        playerName = name;
     }
 }
