@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hardGamesSplash: {fileID: 1535933212}
   lunarLanderSplash: {fileID: 1624552326}
-  scm: {fileID: 2026977106}
+  scm: {fileID: 1822333173}
 --- !u!4 &1299575222
 Transform:
   m_ObjectHideFlags: 0
@@ -576,6 +576,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1822333171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 686677168006685697, guid: 59d01a4312f5ca943a205b6b38b0e803,
+    type: 3}
+  m_PrefabInstance: {fileID: 35863559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1822333173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822333171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac683387164fff458387d536ab812de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actualScene: 
 --- !u!1 &1845229696
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,15 +678,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2026977106 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 686677168006685698, guid: 59d01a4312f5ca943a205b6b38b0e803,
-    type: 3}
-  m_PrefabInstance: {fileID: 35863559}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8061042ac63978445acfc5d627e5fb5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

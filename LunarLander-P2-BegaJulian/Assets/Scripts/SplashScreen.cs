@@ -11,7 +11,7 @@ public class SplashScreen : MonoBehaviour
     bool isInLunarLander;
     bool isInHardGames;
 
-    public SceneManager scm;
+    public CustomSceneManager scm;
     private void Start()
     {
         isInLunarLander = false;

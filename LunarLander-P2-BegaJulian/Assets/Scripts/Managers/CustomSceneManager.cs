@@ -1,20 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class SceneManager : MonoBehaviour
+public class CustomSceneManager : MonoBehaviour
 {
     public string actualScene;
-    public static SceneManager instanceSceneManager;
+    public static CustomSceneManager instanceSceneManager;
 
-    public static SceneManager Instance { get { return instanceSceneManager; } }
+    public static CustomSceneManager Instance { get { return instanceSceneManager; } }
 
     private void Awake()
     {
         actualScene = "Menu";
         if (instanceSceneManager != null && instanceSceneManager != this)
         {
-            Destroy(FindObjectOfType<SceneManager>().gameObject);
+            Destroy(FindObjectOfType<CustomSceneManager>().gameObject);
         }
         else
         {
@@ -32,11 +33,11 @@ public class SceneManager : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
-        Debug.Log("Cambia de escena a" + scene);
-        actualScene = scene;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+       Debug.Log("Cambia de escena a" + scene);
+       actualScene = scene;
+       SceneManager.LoadScene(scene);
     }
-    
+
 
     public void OnClickQuit()
     {

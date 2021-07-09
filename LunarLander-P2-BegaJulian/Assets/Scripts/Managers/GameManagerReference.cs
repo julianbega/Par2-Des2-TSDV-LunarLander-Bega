@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManagerReference : MonoBehaviour
 {
     public GameManager referenceManager;
-    public SceneManager referenceSceneManager;
+    public CustomSceneManager referenceSceneManager;
     private void Awake()
     {
         referenceManager = null;
@@ -14,7 +14,7 @@ public class GameManagerReference : MonoBehaviour
     void Start()
     {
         referenceManager = FindObjectOfType<GameManager>();
-        referenceSceneManager = FindObjectOfType<SceneManager>();
+        referenceSceneManager = FindObjectOfType<CustomSceneManager>();
     }
     void LateStart()
     {
@@ -24,7 +24,7 @@ public class GameManagerReference : MonoBehaviour
         }
         if (referenceSceneManager == null)
         {
-            referenceSceneManager = FindObjectOfType<SceneManager>();
+            referenceSceneManager = FindObjectOfType<CustomSceneManager>();
         }
 
     }
@@ -36,7 +36,7 @@ public class GameManagerReference : MonoBehaviour
         }
         if (referenceSceneManager == null)
         {
-            referenceSceneManager = FindObjectOfType<SceneManager>();
+            referenceSceneManager = FindObjectOfType<CustomSceneManager>();
         }
 
     }
@@ -48,6 +48,7 @@ public class GameManagerReference : MonoBehaviour
 
     public void GoToMenu()
     {
+        Debug.Log("Va a menu");
         referenceSceneManager.ChangeScene("Menu");
     }
     public void GoToGame()

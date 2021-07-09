@@ -6,6 +6,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+
+    private PlayerManager player = null;
     //---------------- Player------------------
     public TextMeshProUGUI score;
     public TextMeshProUGUI time;
@@ -14,11 +16,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI verticalSpeed;
     public TextMeshProUGUI lvl;
     public TextMeshProUGUI altitude;
- 
-  // public Button BackToMenu;
-   // public Button Resume;
+
+    //---------------- Pause------------------
+    public Button BackToMenu;
+    public Button Resume;
     public Image Controls;
-    private PlayerManager player = null;
 
     //---------------- EndLvl------------------
     public Button Next;
@@ -44,7 +46,6 @@ public class UIManager : MonoBehaviour
         if (player != null)
             {
             score.text = "Score: " + player.score.ToString();
-            // time.text = "Time:" + player.score.ToString();
             time.text = "Timer: " + player.GetTimerMin() + " : " + (float)Mathf.Round(player.GetTimerSec());
             fuel.text = "Fuel:" + player.fuel.ToString();
             horizontalSpeed.text = "HorizontalSpeed:" + player.GetHorizontalSpeed().ToString("F2");
@@ -54,14 +55,14 @@ public class UIManager : MonoBehaviour
 
             if (player.GetIsPaused() == true)
             {
-                // BackToMenu.gameObject.SetActive(true);
-                //  Resume.image.enabled = true;
+                BackToMenu.gameObject.SetActive(true);
+                Resume.gameObject.SetActive(true);
                 Controls.gameObject.SetActive(true);
             }
             else
             {
-              //  BackToMenu.gameObject.SetActive(false);
-                //   Resume.image.enabled = false;
+                BackToMenu.gameObject.SetActive(false);
+                Resume.gameObject.SetActive(false);
                 Controls.gameObject.SetActive(false);
             }
 
