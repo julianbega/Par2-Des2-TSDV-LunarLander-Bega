@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public GameObject MapPrefab;
     public GameObject PlayerPrefab;
-    public GameObject BackgroundPrefab;
     public float time;
     public bool isPaused;
     GameObject map;
@@ -55,8 +54,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < texts.Length; i++)
         {
             texts[i].color = Color.white;
-        }
-        background = Instantiate(BackgroundPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        }        
         float randomXpos = Random.Range(0, 110.5f);
         map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
         Player = Instantiate(PlayerPrefab, new Vector3(-55f, 4f, 0), Quaternion.identity);

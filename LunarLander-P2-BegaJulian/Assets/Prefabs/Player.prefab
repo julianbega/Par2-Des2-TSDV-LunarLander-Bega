@@ -125,11 +125,7 @@ MonoBehaviour:
   defaultPointsPerLanding: 200
   victory: 0
   playerIsDeath: 0
-  timerMin: 0
-  timerSec: 0
   Explotion: {fileID: 4418378858407332878}
-  isPaused: 0
-  allreadyCollide: 0
   playerRB: {fileID: 3098420488137353455}
 --- !u!114 &9134984696972604044
 MonoBehaviour:
@@ -145,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   zoomInDistance: 2
+  zoomSpeed: 0.15
   isZoomed: 0
   collide: 0
 --- !u!60 &4276960855644427784

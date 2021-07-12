@@ -8,12 +8,12 @@ public class ZoomManager : MonoBehaviour
     public float zoomInDistance;
 
     private Vector3 initialCameraPos;
-
+    public float zoomSpeed;
     public bool isZoomed;
     public bool collide;
     private void Start()
     {
-        mainCamera = FindObjectOfType<Camera>();
+        mainCamera = Camera.main;
         initialCameraPos = mainCamera.transform.position;
         isZoomed = false;
         collide = false;
@@ -40,12 +40,13 @@ public class ZoomManager : MonoBehaviour
     private void CameraZoomOut()
     {
         mainCamera.transform.position = initialCameraPos;
-        mainCamera.orthographicSize = 5f;
+        mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 1);
         // mainCamera.orthographicSize = Mathf.LerpUnclamped(3f, 5f, 0.2f);
         Debug.Log("zoom out");
     }
     private void CameraZoomIn()
     {
+
       /*  if (this.transform.position.x <= -60.5f)
         {
             mainCamera.transform.position = new Vector3(-60.5f, this.transform.position.y, mainCamera.transform.position.z);
@@ -56,10 +57,10 @@ public class ZoomManager : MonoBehaviour
         }
         else 
         {*/
-            mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, mainCamera.transform.position.z);
+        mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, mainCamera.transform.position.z);
        // }
-       mainCamera.orthographicSize = 3f;
-        //mainCamera.orthographicSize = Mathf.LerpUnclamped(5f, 3f, 0.2f);
+      // mainCamera.orthographicSize = 3f;
+       mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 2, zoomSpeed);
         Debug.Log("zoom in");
     }
 }
