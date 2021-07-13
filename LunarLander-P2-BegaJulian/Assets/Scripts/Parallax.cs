@@ -20,9 +20,10 @@ public class Parallax : MonoBehaviour
     public SpriteRenderer Level1Sign;
     void Start()
     {
+        planetsStartingPos = new List<Vector3>();
         backgroundParallaxStartingPos = background[0].transform.position;
         start = false;
-        for (int i = 0; i < planets.Count; i++)
+        for (int i = 0; i <= planets.Count-1; i++)
         {
             planetsStartingPos.Add(planets[i].transform.position);
         }
@@ -31,7 +32,7 @@ public class Parallax : MonoBehaviour
     {
         if (start)
         {
-            for (int i = 0; i < planets.Count; i++)
+            for (int i = 0; i <= planets.Count-1; i++)
             {
                 if (planets[i].transform.position.x <= parallaxXLimit)
                 {
@@ -39,7 +40,7 @@ public class Parallax : MonoBehaviour
                 }
                 planets[i].transform.position = (planets[i].transform.position + (Vector3.left * (planetsSpeed[i] / 3) * Time.deltaTime));
             }
-            for (int i = 0; i < background.Count; i++)
+            for (int i = 0; i <= background.Count-1; i++)
             {
                 if (background[i].transform.position.x <= backgroundParallaxXLimit)
                 {

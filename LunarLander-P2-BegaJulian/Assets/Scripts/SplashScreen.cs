@@ -8,14 +8,9 @@ public class SplashScreen : MonoBehaviour
     public CanvasGroup hardGamesSplash;
     public CanvasGroup lunarLanderSplash;
 
-    bool isInLunarLander;
-    bool isInHardGames;
-
     public CustomSceneManager scm;
     private void Start()
     {
-        isInLunarLander = false;
-        isInHardGames = true;
         hardGamesSplash.alpha = 1f;
         lunarLanderSplash.alpha = 0;
         StartSplash();
@@ -46,7 +41,6 @@ public class SplashScreen : MonoBehaviour
     }
     public void StartSplash()
     {
-        Debug.Log("go to game");
         StartCoroutine(WaitAndStartSplash());
     }
 }

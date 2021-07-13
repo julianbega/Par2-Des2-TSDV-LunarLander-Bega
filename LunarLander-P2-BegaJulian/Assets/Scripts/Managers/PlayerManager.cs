@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    const float degreesToConsiderACrashOrLanding = 10f;
     public float fuel;
     public float score;
     public float rotationSpeed;
@@ -28,6 +29,8 @@ public class PlayerManager : MonoBehaviour
     private bool allreadyCollide;
 
     public Rigidbody2D playerRB;
+
+    public Camera mainCamera;
     private void Awake()
     {
         playerRB.gravityScale = gravity;
@@ -37,6 +40,7 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
+        mainCamera = Camera.main;
         lvl += 1;
         victory = false;
         allreadyCollide = false;
@@ -62,10 +66,17 @@ public class PlayerManager : MonoBehaviour
         }
         if (playerIsDeath)
         {
-            Explotion.SetBool("Die", true);
             this.GetComponent<SpriteRenderer>().enabled = false;
         }
-        
+
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(this.transform.position);
+
+        if (viewportPos.x < 0 || viewportPos.x > 1)
+        {
+            FindObjectOfType<GameManager>().SaveHighScore();
+            playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
+            playerIsDeath = true;
+        }
     }
 
 
@@ -76,8 +87,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetScoreThisLevel(int multiplier)
     {
-        scoreThisLevel = defaultPointsPerLanding * multiplier;
-        
+        scoreThisLevel = (defaultPointsPerLanding * multiplier);        
     }
     public void SetPlayerIsDeath(bool checkDeath)
     {
@@ -126,32 +136,49 @@ public class PlayerManager : MonoBehaviour
     {
         if (Mathf.Abs(GetVerticalSpeed()) + Mathf.Abs(GetHorizontalSpeed()) > 1)
         {
+            FindObjectOfType<GameManager>().SaveHighScore();
+            playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
             playerIsDeath = true;
         }
         else
         {
-            if (playerRB.rotation < -10 || playerRB.rotation > 10)
+            if (playerRB.rotation < -degreesToConsiderACrashOrLanding || playerRB.rotation > degreesToConsiderACrashOrLanding)
             {
+                FindObjectOfType<GameManager>().SaveHighScore();
+                playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
                 playerIsDeath = true;
             }
             else
             {
-                Debug.Log("Chocó con la plataforma" + collision.gameObject.tag);
+                playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
                 SetVictory(true);
                 if (!allreadyCollide)
                 {
                     if (collision.gameObject.tag == "X2")
-                    { SetScoreThisLevel(2); }
+                    {
+                        SetScoreThisLevel(2); 
+                    }
                     else if (collision.gameObject.tag == "X3")
-                    { SetScoreThisLevel(3); }
+                    {
+                        SetScoreThisLevel(3); 
+                    }
                     else if (collision.gameObject.tag == "X4")
-                    { SetScoreThisLevel(4); }
+                    {
+                        SetScoreThisLevel(4); 
+                    }
                     else if (collision.gameObject.tag == "X5")
-                    { SetScoreThisLevel(5); }
+                    {
+                        SetScoreThisLevel(5);
+                    }
                     else if (collision.gameObject.tag == "X6")
-                    { SetScoreThisLevel(6); }
+                    {
+                        SetScoreThisLevel(6);
+                    }
                     else
-                    { SetScoreThisLevel(1); }
+                    {
+                        SetScoreThisLevel(1); 
+                    }
+                    FindObjectOfType<GameManager>().lastScore = score;
                 }
 
             }
@@ -161,6 +188,8 @@ public class PlayerManager : MonoBehaviour
 
     public void NewLvl()
     {
+        FindObjectOfType<GameManager>().lastScore = score;
+        playerRB.constraints = RigidbodyConstraints2D.None;
         lvl += 1;
         victory = false;
         allreadyCollide = false;

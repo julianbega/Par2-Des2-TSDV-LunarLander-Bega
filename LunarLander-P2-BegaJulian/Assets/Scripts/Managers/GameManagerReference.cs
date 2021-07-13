@@ -48,7 +48,6 @@ public class GameManagerReference : MonoBehaviour
 
     public void GoToMenu()
     {
-        Debug.Log("Va a menu");
         referenceSceneManager.ChangeScene("Menu");
     }
     public void GoToGame()

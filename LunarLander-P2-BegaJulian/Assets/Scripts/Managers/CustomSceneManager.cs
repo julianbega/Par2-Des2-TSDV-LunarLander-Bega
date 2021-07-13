@@ -33,7 +33,6 @@ public class CustomSceneManager : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
-       Debug.Log("Cambia de escena a" + scene);
        actualScene = scene;
        SceneManager.LoadScene(scene);
     }

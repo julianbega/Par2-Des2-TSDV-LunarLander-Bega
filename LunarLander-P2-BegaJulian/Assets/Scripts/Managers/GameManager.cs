@@ -10,14 +10,14 @@ public class GameManager : MonoBehaviour
     public float time;
     public bool isPaused;
     GameObject map;
-    GameObject background;
     GameObject Player;
-    PlayerManager playerManager;
+    public PlayerManager playerManager;
     public static GameManager instanceGameManager;
     private UIManager UI;
     public string playerName;
+    public float lastScore;
 
-
+    public PlayerData highScore;
     public static GameManager Instance { get { return instanceGameManager; } }
 
     private void Awake()
@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        playerName = "NN";
+        highScore = SaveSystem.LoadHighScore();
+        if (playerName == null) playerName = "NN";
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -44,6 +45,22 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
+        }
+
+    }
+    public void SaveHighScore()
+    {
+        if (highScore != null)
+        {
+            if (playerManager.score > highScore.score)
+            {
+                SaveSystem.SaveHighScore(this);
+                SaveSystem.LoadHighScore();
+            }
+        }
+        else
+        {
+            SaveSystem.SaveHighScore(this);
         }
     }
 
@@ -93,12 +110,18 @@ public class GameManager : MonoBehaviour
     }
     public void GoToGame()
     {
-        Debug.Log("go to game");
         StartCoroutine(Wait1SecondAndStartGame());
     }
 
     public void ReadPlayersName(string name)
     {
+        Debug.Log("Lee el name");
         playerName = name;
+        Debug.Log(playerName);
+    }
+
+    public float GetLastScore()
+    {
+        return lastScore;
     }
 }

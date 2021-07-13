@@ -22,7 +22,7 @@ public class ZoomManager : MonoBehaviour
     { 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, zoomInDistance);
         Debug.DrawRay(transform.position, Vector2.down);
-        if (hit.collider != null) //colisiona con algo
+        if (hit.collider != null) 
         {
                 CameraZoomIn();
                 isZoomed = true;
@@ -36,31 +36,17 @@ public class ZoomManager : MonoBehaviour
                 isZoomed = false;
             }
         }
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(this.transform.position);
+       // Debug.Log("pos en viewport = " + viewportPos.x + " / " + viewportPos.y);
     }
     private void CameraZoomOut()
     {
         mainCamera.transform.position = initialCameraPos;
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 1);
-        // mainCamera.orthographicSize = Mathf.LerpUnclamped(3f, 5f, 0.2f);
-        Debug.Log("zoom out");
     }
     private void CameraZoomIn()
-    {
-
-      /*  if (this.transform.position.x <= -60.5f)
-        {
-            mainCamera.transform.position = new Vector3(-60.5f, this.transform.position.y, mainCamera.transform.position.z);
-        }
-        else if (this.transform.position.x >= -50)
-        {
-            mainCamera.transform.position = new Vector3(-50f, this.transform.position.y, mainCamera.transform.position.z);
-        }
-        else 
-        {*/
-        mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, mainCamera.transform.position.z);
-       // }
-      // mainCamera.orthographicSize = 3f;
+    {     
+       mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, mainCamera.transform.position.z);
        mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 2, zoomSpeed);
-        Debug.Log("zoom in");
     }
 }

@@ -1424,6 +1424,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9209049710765689247, guid: 5cca6f9e86c652f40b3ea7879cfa0ea6,
+        type: 3}
+      propertyPath: playerName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cca6f9e86c652f40b3ea7879cfa0ea6, type: 3}
 --- !u!1 &1008521677
@@ -1526,7 +1531,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1721533023}
+      - m_Target: {fileID: 9209049710765689247, guid: 5cca6f9e86c652f40b3ea7879cfa0ea6,
+          type: 3}
         m_MethodName: ReadPlayersName
         m_Mode: 0
         m_Arguments:
@@ -2331,18 +2337,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693202806}
   m_CullTransparentMesh: 0
---- !u!114 &1721533023 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9209049710765689247, guid: 5cca6f9e86c652f40b3ea7879cfa0ea6,
-    type: 3}
-  m_PrefabInstance: {fileID: 906605140}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf9550eb0cf710e41b591924acef0fee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1744143581
 GameObject:
   m_ObjectHideFlags: 0
