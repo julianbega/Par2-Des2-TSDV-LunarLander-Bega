@@ -11,19 +11,12 @@ public class ZoomManager : MonoBehaviour
     public float zoomSpeed;
     public bool isZoomed;
     public bool collide;
-    public Vector3 viewportPos;
-    public float xCameraHighLimit;
-    public float xCameraLowLimit;
     private void Start()
     {
         mainCamera = Camera.main;
         initialCameraPos = mainCamera.transform.position;
         isZoomed = false;
         collide = false;
-        viewportPos = mainCamera.transform.position;
-
-        xCameraLowLimit = viewportPos.x - ((Screen.width / 10) * 3);
-        xCameraHighLimit = viewportPos.x + ((Screen.width / 10) * 3);
     }
     void FixedUpdate()
     { 
@@ -50,20 +43,11 @@ public class ZoomManager : MonoBehaviour
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 5, 1);
     }
     private void CameraZoomIn()
-    {   
-        if (this.transform.position.x < xCameraLowLimit)
-        {
-            mainCamera.transform.position = new Vector3(xCameraLowLimit, this.transform.position.y, mainCamera.transform.position.z);
-        }
-        else if (this.transform.position.x > xCameraHighLimit)
-        {
-            mainCamera.transform.position = new Vector3(xCameraHighLimit, this.transform.position.y, mainCamera.transform.position.z);
-        }
-        else 
-        {
-            mainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, mainCamera.transform.position.z);
-        }
+    {
+        mainCamera.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -60.5f, -49.85f), this.transform.position.y, mainCamera.transform.position.z);
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 2, zoomSpeed);
-       
+
     }
+
+
 }
