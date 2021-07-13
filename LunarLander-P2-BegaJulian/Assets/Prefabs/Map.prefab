@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1684167270209402079}
   - component: {fileID: 7523982813850300339}
   - component: {fileID: 1039100086001360987}
+  - component: {fileID: 4260112104616631794}
   m_Layer: 0
   m_Name: Wind (4)
   m_TagString: Untagged
@@ -4801,6 +4802,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &4260112104616631794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599376494815191253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &798908127524073299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4814,6 +4834,7 @@ GameObject:
   - component: {fileID: 2486021193600604535}
   - component: {fileID: 5650618842953172927}
   - component: {fileID: 2125971159572227815}
+  - component: {fileID: 6760711432979113000}
   m_Layer: 0
   m_Name: Wind (7)
   m_TagString: Untagged
@@ -9602,6 +9623,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6760711432979113000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798908127524073299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &836900065375052601
 GameObject:
   m_ObjectHideFlags: 0
@@ -10098,6 +10138,7 @@ GameObject:
   - component: {fileID: 8990856918219927583}
   - component: {fileID: 8241325967951966669}
   - component: {fileID: 9145065786687407979}
+  - component: {fileID: 8830374265772286898}
   m_Layer: 0
   m_Name: Wind (6)
   m_TagString: Untagged
@@ -14886,6 +14927,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8830374265772286898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412980123616962954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &1632318975951324509
 GameObject:
   m_ObjectHideFlags: 0
@@ -14899,6 +14959,7 @@ GameObject:
   - component: {fileID: 8116071693972650194}
   - component: {fileID: 4931198540451201739}
   - component: {fileID: 5217262229605929133}
+  - component: {fileID: 5540997943042780373}
   m_Layer: 0
   m_Name: Wind (9)
   m_TagString: Untagged
@@ -19687,6 +19748,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5540997943042780373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632318975951324509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &2494683538207511254
 GameObject:
   m_ObjectHideFlags: 0
@@ -19700,6 +19780,7 @@ GameObject:
   - component: {fileID: 6981422201407405487}
   - component: {fileID: 3640550650457993869}
   - component: {fileID: 4952935499417437477}
+  - component: {fileID: 1316865850833878124}
   m_Layer: 0
   m_Name: Wind (1)
   m_TagString: Untagged
@@ -24488,6 +24569,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1316865850833878124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494683538207511254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &4515380067155399694
 GameObject:
   m_ObjectHideFlags: 0
@@ -24501,6 +24601,7 @@ GameObject:
   - component: {fileID: 4104924242774996412}
   - component: {fileID: 733600281253692244}
   - component: {fileID: 3406271302313415218}
+  - component: {fileID: 6584155360616358016}
   m_Layer: 0
   m_Name: Wind (8)
   m_TagString: Untagged
@@ -29289,6 +29390,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6584155360616358016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515380067155399694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &4776439412363793608
 GameObject:
   m_ObjectHideFlags: 0
@@ -29438,6 +29558,7 @@ GameObject:
   - component: {fileID: 5829758043549377862}
   - component: {fileID: 2082137309895932823}
   - component: {fileID: 7085133879991921696}
+  - component: {fileID: 6750356119951359479}
   m_Layer: 0
   m_Name: Wind (2)
   m_TagString: Untagged
@@ -34226,6 +34347,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6750356119951359479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803659681408081368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &7827988078916801035
 GameObject:
   m_ObjectHideFlags: 0
@@ -34239,6 +34379,7 @@ GameObject:
   - component: {fileID: 8272383081455642324}
   - component: {fileID: 3086425037007160679}
   - component: {fileID: 3786350716986230863}
+  - component: {fileID: 2759469171407870058}
   m_Layer: 0
   m_Name: Wind
   m_TagString: Untagged
@@ -39027,6 +39168,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2759469171407870058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7827988078916801035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &7906395275919155171
 GameObject:
   m_ObjectHideFlags: 0
@@ -39040,6 +39200,7 @@ GameObject:
   - component: {fileID: 6447931154383377807}
   - component: {fileID: 3812696033935649117}
   - component: {fileID: 2846372178371784568}
+  - component: {fileID: 7846973404853106064}
   m_Layer: 0
   m_Name: Wind (3)
   m_TagString: Untagged
@@ -43828,6 +43989,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7846973404853106064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906395275919155171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1 &8508898755271686480
 GameObject:
   m_ObjectHideFlags: 0
@@ -43841,6 +44021,7 @@ GameObject:
   - component: {fileID: 6489047333072883647}
   - component: {fileID: 7104252571860529922}
   - component: {fileID: 5444238729146892350}
+  - component: {fileID: 566180053209224412}
   m_Layer: 0
   m_Name: Wind (5)
   m_TagString: Untagged
@@ -48629,6 +48810,25 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &566180053209224412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508898755271686480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c67bd255e681f4e9df436474a71f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1684167270209402079}
+  lvlToStartLowWind: 2
+  lvlToStandardWind: 4
+  lvlToStartHighWind: 8
+  lowWind: 0.5
+  standardWind: 0
+  highWind: 1.5
 --- !u!1001 &92928908849163943
 PrefabInstance:
   m_ObjectHideFlags: 0
