@@ -6,11 +6,13 @@ public class ZoomManager : MonoBehaviour
 {
     public Camera mainCamera;
     public float zoomInDistance;
-
     private Vector3 initialCameraPos;
     public float zoomSpeed;
     public bool isZoomed;
     public bool collide;
+
+    const float cameraLowLimit = -60.5f;
+    const float cameraHighLimit = -49.85f;
     private void Start()
     {
         mainCamera = Camera.main;
@@ -44,7 +46,7 @@ public class ZoomManager : MonoBehaviour
     }
     private void CameraZoomIn()
     {
-        mainCamera.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, -60.5f, -49.85f), this.transform.position.y, mainCamera.transform.position.z);
+        mainCamera.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, cameraLowLimit, cameraHighLimit), this.transform.position.y, mainCamera.transform.position.z);
         mainCamera.orthographicSize = Mathf.Lerp(mainCamera.orthographicSize, 2, zoomSpeed);
 
     }

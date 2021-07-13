@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public PlayerData highScore;
     public static GameManager Instance { get { return instanceGameManager; } }
 
+    const float playerStartingXPos = -55f;
+    const float playerStartingYPos = 4f;
     private void Awake()
     {
         if (instanceGameManager != null && instanceGameManager != this)
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
         }        
         float randomXpos = Random.Range(0, 110.5f);
         map = Instantiate(MapPrefab, new Vector3(randomXpos * -1, 1.3f, 0), Quaternion.identity);
-        Player = Instantiate(PlayerPrefab, new Vector3(-55f, 4f, 0), Quaternion.identity);
+        Player = Instantiate(PlayerPrefab, new Vector3(playerStartingXPos, playerStartingYPos, 0), Quaternion.identity);
         playerManager = Player.GetComponent<PlayerManager>();
     }
     public void StartNewLvl()

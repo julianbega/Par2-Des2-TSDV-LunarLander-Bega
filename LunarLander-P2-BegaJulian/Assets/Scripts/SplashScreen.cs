@@ -7,7 +7,7 @@ public class SplashScreen : MonoBehaviour
 {
     public CanvasGroup hardGamesSplash;
     public CanvasGroup lunarLanderSplash;
-
+    public float secondsToWait;
     public CustomSceneManager scm;
     private void Start()
     {
@@ -19,7 +19,7 @@ public class SplashScreen : MonoBehaviour
     }
     public IEnumerator WaitAndStartSplash()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(secondsToWait);
         while (hardGamesSplash.alpha > 0)
         {
             hardGamesSplash.alpha -= Time.deltaTime;
@@ -34,7 +34,7 @@ public class SplashScreen : MonoBehaviour
             }
             if (lunarLanderSplash.alpha >= 1)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(secondsToWait);
             }
             scm.ChangeScene("Menu");
         }

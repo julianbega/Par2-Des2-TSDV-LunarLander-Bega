@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    const float degreesToConsiderACrashOrLanding = 10f;
+    public float degreesExcededToConsiderACrash;
+    public float speedExcededToConsiderACrash;
+    const float baseMapAltitude = 5f;
     public float fuel;
     public float score;
     public float rotationSpeed;
@@ -50,7 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        altitude = (transform.position.y + 5) * 100;
+        altitude = (transform.position.y + baseMapAltitude) * 100; 
         verticalSpeed =  playerRB.velocity.y;
         horizontalSpeed = playerRB.velocity.x;
         timerSec += Time.deltaTime;
@@ -134,7 +136,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Mathf.Abs(GetVerticalSpeed()) + Mathf.Abs(GetHorizontalSpeed()) > 1)
+        if (Mathf.Abs(GetVerticalSpeed()) + Mathf.Abs(GetHorizontalSpeed()) > speedExcededToConsiderACrash)
         {
             FindObjectOfType<GameManager>().SaveHighScore();
             playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -142,7 +144,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            if (playerRB.rotation < -degreesToConsiderACrashOrLanding || playerRB.rotation > degreesToConsiderACrashOrLanding)
+            if (playerRB.rotation < -degreesExcededToConsiderACrash || playerRB.rotation > degreesExcededToConsiderACrash)
             {
                 FindObjectOfType<GameManager>().SaveHighScore();
                 playerRB.constraints = RigidbodyConstraints2D.FreezeAll;

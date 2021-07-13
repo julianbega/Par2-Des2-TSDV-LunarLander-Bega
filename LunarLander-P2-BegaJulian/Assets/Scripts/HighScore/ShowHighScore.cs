@@ -9,20 +9,12 @@ public class ShowHighScore : MonoBehaviour
     public TextMeshProUGUI highScore;
     public TextMeshProUGUI playerScore;
     public GameManager gm;
-    // Start is called before the first frame update
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
         UpdateHighScoreText();
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void UpdateHighScoreText()
     {
         playerScore.text = "Your Score is: " + gm.GetLastScore().ToString();

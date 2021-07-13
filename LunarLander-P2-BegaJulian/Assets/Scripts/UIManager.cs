@@ -34,8 +34,6 @@ public class UIManager : MonoBehaviour
         player = FindObjectOfType<PlayerManager>();
         setEndLvl();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (player == null)
@@ -83,7 +81,7 @@ public class UIManager : MonoBehaviour
                 }
                
             }
-            if (FinalScore.gameObject.active)
+            if (FinalScore.gameObject.activeSelf)
             {
                 FinalScore.text = "Final Score: " + player.score.ToString();
             }

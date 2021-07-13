@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3349f7ffb4eb6fe43a27afd23b44a068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  degreesExcededToConsiderACrash: 10
+  speedExcededToConsiderACrash: 1
   fuel: 4000
   score: 0
   rotationSpeed: 40
@@ -127,6 +129,7 @@ MonoBehaviour:
   playerIsDeath: 0
   Explotion: {fileID: 4418378858407332878}
   playerRB: {fileID: 3098420488137353455}
+  mainCamera: {fileID: 0}
 --- !u!114 &9134984696972604044
 MonoBehaviour:
   m_ObjectHideFlags: 0
