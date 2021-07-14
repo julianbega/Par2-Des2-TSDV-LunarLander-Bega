@@ -7,13 +7,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem 
 {  
     
-    public static void SaveHighScore(GameManager gm)
+    public static void SaveHighScore(PlayerData actualData)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/HighScore.data";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(gm);
+        PlayerData data = new PlayerData(actualData);
 
         formatter.Serialize(stream, data);
         stream.Close();

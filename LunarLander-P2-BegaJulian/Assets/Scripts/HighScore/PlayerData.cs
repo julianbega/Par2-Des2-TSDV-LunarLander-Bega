@@ -8,10 +8,10 @@ public class PlayerData
     public float score;
     public string playerName;
 
-    public PlayerData(GameManager player)
+    public PlayerData(PlayerData actualData)
     {
-        Debug.Log("player name to save = " + player.playerName);
-        playerName = player.playerName;
-        score = player.playerManager.score;
+        Debug.Log("player name to save = " + actualData.playerName);
+        playerName = actualData.playerName;
+        score = actualData.score;
     }
 }

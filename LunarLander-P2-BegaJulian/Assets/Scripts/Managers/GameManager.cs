@@ -14,9 +14,7 @@ public class GameManager : MonoBehaviour
     public PlayerManager playerManager;
     public static GameManager instanceGameManager;
     private UIManager UI;
-    public string playerName;
-    public float lastScore;
-
+    public PlayerData actualPlayer;
     public PlayerData highScore;
     public static GameManager Instance { get { return instanceGameManager; } }
 
@@ -35,15 +33,20 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        PlayerManager.OnSaveHighScore += SaveHighScore;
+        PlayerManager.OnUpdateHighScore += UpdateScore;
         highScore = SaveSystem.LoadHighScore();
-        if (playerName == "") playerName = "NN";
+        if (actualPlayer.playerName == "") actualPlayer.playerName = "NN";
         DontDestroyOnLoad(this.gameObject);
     }
+    private void OnDisable()
+    {
+        PlayerManager.OnSaveHighScore -= SaveHighScore;
+        PlayerManager.OnUpdateHighScore -= UpdateScore;
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log(playerName);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
@@ -56,13 +59,13 @@ public class GameManager : MonoBehaviour
         {
             if (playerManager.score > highScore.score)
             {
-                SaveSystem.SaveHighScore(this);
+                SaveSystem.SaveHighScore(actualPlayer);
                 SaveSystem.LoadHighScore();
             }
         }
         else
         {
-            SaveSystem.SaveHighScore(this);
+            SaveSystem.SaveHighScore(actualPlayer);
         }
     }
 
@@ -118,12 +121,16 @@ public class GameManager : MonoBehaviour
     public void ReadPlayersName(string name)
     {
         Debug.Log("Lee el name");
-        playerName = name;
-        Debug.Log(playerName);
+        actualPlayer.playerName = name;
+        Debug.Log(actualPlayer.playerName);
     }
 
     public float GetLastScore()
     {
-        return lastScore;
+        return actualPlayer.score;
+    }
+    public void UpdateScore(float score)
+    {
+        actualPlayer.score = score;
     }
 }

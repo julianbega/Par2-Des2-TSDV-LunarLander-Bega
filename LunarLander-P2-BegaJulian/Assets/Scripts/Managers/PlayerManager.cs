@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -22,8 +23,6 @@ public class PlayerManager : MonoBehaviour
     private float timerSec;
 
 
-    public Animator Explotion;
-
     private float horizontalSpeed;
     private float verticalSpeed;
     private float altitude;
@@ -33,6 +32,9 @@ public class PlayerManager : MonoBehaviour
     public Rigidbody2D playerRB;
 
     public Camera mainCamera;
+
+    public static Action<float> OnUpdateHighScore;
+    public static Action OnSaveHighScore;
     private void Awake()
     {
         playerRB.gravityScale = gravity;
@@ -75,7 +77,7 @@ public class PlayerManager : MonoBehaviour
 
         if (viewportPos.x < 0 || viewportPos.x > 1)
         {
-            FindObjectOfType<GameManager>().SaveHighScore();
+            OnSaveHighScore?.Invoke();
             playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
             playerIsDeath = true;
         }
@@ -138,7 +140,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (Mathf.Abs(GetVerticalSpeed()) + Mathf.Abs(GetHorizontalSpeed()) > speedExcededToConsiderACrash)
         {
-            FindObjectOfType<GameManager>().SaveHighScore();
+            OnSaveHighScore?.Invoke();
             playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
             playerIsDeath = true;
         }
@@ -146,7 +148,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (playerRB.rotation < -degreesExcededToConsiderACrash || playerRB.rotation > degreesExcededToConsiderACrash)
             {
-                FindObjectOfType<GameManager>().SaveHighScore();
+                OnSaveHighScore?.Invoke();
                 playerRB.constraints = RigidbodyConstraints2D.FreezeAll;
                 playerIsDeath = true;
             }
@@ -156,33 +158,20 @@ public class PlayerManager : MonoBehaviour
                 SetVictory(true);
                 if (!allreadyCollide)
                 {
-                    if (collision.gameObject.tag == "X2")
+                    for (int i = 1; i < 7; i++)
                     {
-                        SetScoreThisLevel(2); 
+                        if (collision.gameObject.tag == "X"+i)
+                        {
+                            SetScoreThisLevel(i);
+                        }
                     }
-                    else if (collision.gameObject.tag == "X3")
-                    {
-                        SetScoreThisLevel(3); 
-                    }
-                    else if (collision.gameObject.tag == "X4")
-                    {
-                        SetScoreThisLevel(4); 
-                    }
-                    else if (collision.gameObject.tag == "X5")
-                    {
-                        SetScoreThisLevel(5);
-                    }
-                    else if (collision.gameObject.tag == "X6")
-                    {
-                        SetScoreThisLevel(6);
-                    }
-                    else
+                    if (collision.gameObject.tag == "Map")
                     {
                         SetScoreThisLevel(1); 
                     }
-                    FindObjectOfType<GameManager>().lastScore = score;
-                }
 
+                    OnUpdateHighScore?.Invoke(score);
+                }
             }
         }
         allreadyCollide = true;
@@ -190,7 +179,7 @@ public class PlayerManager : MonoBehaviour
 
     public void NewLvl()
     {
-        FindObjectOfType<GameManager>().lastScore = score;
+        OnUpdateHighScore?.Invoke(score);
         playerRB.constraints = RigidbodyConstraints2D.None;
         lvl += 1;
         victory = false;
