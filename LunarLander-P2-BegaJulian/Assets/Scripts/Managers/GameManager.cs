@@ -36,14 +36,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         highScore = SaveSystem.LoadHighScore();
-        if (playerName == null) playerName = "NN";
+        if (playerName == "") playerName = "NN";
         DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(playerName);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();

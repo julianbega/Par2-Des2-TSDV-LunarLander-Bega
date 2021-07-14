@@ -24,7 +24,6 @@ public class WindRegulator : MonoBehaviour
             lvlGiver = FindObjectOfType<PlayerManager>();
         }
         lvl = lvlGiver.lvl;
-
         if (lvl < lvlToStartLowWind)
         {
             effect.forceMagnitude = 0;
@@ -39,7 +38,6 @@ public class WindRegulator : MonoBehaviour
         }
         if (lvl >= lvlToStartHighWind)
         {
-
             effect.forceMagnitude = highWind;
         }
     }

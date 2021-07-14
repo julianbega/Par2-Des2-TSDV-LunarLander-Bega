@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 9209049710765689246}
   - component: {fileID: 9209049710765689247}
   m_Layer: 0
-  m_Name: GameManager (1)
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9209049710765689246
 Transform:
   m_ObjectHideFlags: 0
@@ -47,7 +47,11 @@ MonoBehaviour:
     type: 3}
   PlayerPrefab: {fileID: 4276960855644427780, guid: e450dc982779c814eb8b600062be0031,
     type: 3}
-  BackgroundPrefab: {fileID: 3992073517695322180, guid: bf62b14a930885743b4f9cfc41a8b75c,
-    type: 3}
   time: 0
   isPaused: 0
+  playerManager: {fileID: 0}
+  playerName: 
+  lastScore: 0
+  highScore:
+    score: 0
+    playerName: 

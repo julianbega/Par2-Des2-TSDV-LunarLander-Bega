@@ -71,7 +71,10 @@ public class GameManagerReference : MonoBehaviour
     {
         referenceManager.GoToGame();
     }
-    
+    public void ReadPlayersName(string name)
+    {
+        referenceManager.ReadPlayersName(name);
+    }
 }
 
 
